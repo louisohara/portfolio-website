@@ -1,18 +1,13 @@
-import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+import IconButton from "@mui/material/IconButton";
+import "./ThemeButton.scss";
 
 function ThemeButton({ toggleDarkTheme, toggleDarkMode }) {
   return (
-    <button
-      type="button"
-      className="flex justify-center items-center"
-      onClick={toggleDarkTheme}
-    >
-      {!toggleDarkMode ? (
-        <MoonIcon color="black" width={25} />
-      ) : (
-        <SunIcon color="white" width={25} />
-      )}
-    </button>
+    <IconButton sx={{ ml: 1 }} onClick={toggleDarkTheme} color="inherit">
+      {toggleDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+    </IconButton>
   );
 }
 

@@ -5,12 +5,11 @@ import React from "react";
 import { ThemeProvider, createTheme } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import "@fontsource-variable/inter";
-import ThemeButton from "./components/ThemeButton/ThemeButton";
 import Contact from "./components/Contact/Contact";
 import Work from "./components/Work/Work";
 import About from "./components/About/About";
 import ReactFullpage from "@fullpage/react-fullpage";
-import fullpage from "fullpage.js";
+import fullpage from "fullpage.js/dist/fullpage.extensions.min.js";
 import Header from "./components/Header/Header";
 
 export default function App() {
@@ -30,10 +29,10 @@ export default function App() {
     palette: {
       mode: toggleDarkMode ? "dark" : "light",
       primary: {
-        main: "#90caf9",
+        main: "#E0E1DD",
       },
       secondary: {
-        main: "#131052",
+        main: "#0D1B2A",
       },
     },
   });
@@ -44,18 +43,25 @@ export default function App() {
         ? ["profile", "about", "work", "contact"]
         : ["about", "work", "contact"]; // Anchors for tablet and above sizes
 
+    // const colours =
+    //   dimensions.width <= 768
+    //     ? ["#f2e9e4", "#c9ada7", "#9a8c98", "#4a4e69"]
+    //     : ["#c9ada7", "#9a8c98", "#4a4e69"];
     if (dimensions.width <= 768) {
       anchors.unshift("profile"); // Add 'profile' anchor for mobile size
+      // colours.unshift("#f2e9e4");
     }
 
     new fullpage("#fullpage", {
       scrollingSpeed: 1000,
+
       licenseKey: "49LBJ-QFTRJ-2K68I-J3RQ6-JLXMN",
       credits: { enabled: false, label: "", position: "right" },
       dragAndMove: true,
       navigation: true,
       navigationPosition: "right",
-      navigationColor: "pink",
+      // sectionsColor: colours,
+      navigationColor: "#E0E1DD",
       lazyLoading: false,
       anchors: anchors,
       menu: "#myMenu",
@@ -63,7 +69,8 @@ export default function App() {
   };
   const destroyFullPage = () => {
     if (fullPageRef) {
-      fullPageRef.innerHTML = ""; // Remove content inside the FullPage.js container
+      // fullPageRef.innerHTML = "";
+      window.fullpage_api.destroy("all");
     }
   };
   const handleResize = () => {
@@ -80,10 +87,10 @@ export default function App() {
 
     window.addEventListener("resize", handleResize);
 
-    // return () => {
-    //   destroyFullPage();
-    //   window.removeEventListener("resize", handleResize);
-    // };
+    return () => {
+      destroyFullPage();
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   // FOR MOBILE TO TABLET REDIRECTION
@@ -101,6 +108,7 @@ export default function App() {
         <Header
           toggleDarkTheme={toggleDarkTheme}
           toggleDarkMode={toggleDarkMode}
+          dimensions={dimensions}
         />
         {dimensions.width > 768 && (
           <div className="app__container">Welcome to my portfolio website</div>
@@ -113,7 +121,6 @@ export default function App() {
               </div>
             </div>
           )}
-
           <div className="section" data-anchor="about">
             <About />
           </div>
