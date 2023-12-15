@@ -5,9 +5,11 @@ import "./ThemeButton.scss";
 
 function ThemeButton({ toggleDarkTheme, toggleDarkMode }) {
   return (
-    <IconButton sx={{ ml: 1 }} onClick={toggleDarkTheme} color="inherit">
-      {toggleDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
-    </IconButton>
+    <div className="theme">
+      <IconButton sx={{ ml: 1 }} onClick={toggleDarkTheme} color="inherit">
+        {toggleDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+      </IconButton>
+    </div>
   );
 }
 

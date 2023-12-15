@@ -1,3 +1,30 @@
+@use "../../styles/partials/mixins" as *;
+
 .header {
   z-index: 1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  @include tablet {
+    width: 65%;
+    right: 0;
+  }
+
+  &__navbar {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 2rem auto;
+    padding-left: 0;
+  }
+  &__link {
+    list-style-type: none;
+    cursor: pointer;
+  }
+  &__link-tag {
+    text-decoration: none;
+    color: unset;
+  }
 }

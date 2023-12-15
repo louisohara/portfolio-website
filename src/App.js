@@ -11,6 +11,7 @@ import About from "./components/About/About";
 import ReactFullpage from "@fullpage/react-fullpage";
 import fullpage from "fullpage.js/dist/fullpage.extensions.min.js";
 import Header from "./components/Header/Header";
+import Profile from "./components/Profile/Profile";
 
 export default function App() {
   const [toggleDarkMode, setToggleDarkMode] = useState(false);
@@ -93,11 +94,14 @@ export default function App() {
     };
   }, []);
 
-  // FOR MOBILE TO TABLET REDIRECTION
+  // FOR MOBILE/TABLET REDIRECTION
   useEffect(() => {
     const active = window.fullpage_api.getActiveSection();
     if (dimensions.width > 768 && active.anchor === "profile") {
       window.fullpage_api.silentMoveTo("about");
+    }
+    if (dimensions.width < 768 && active.anchor === "about") {
+      window.fullpage_api.silentMoveTo("profile");
     }
   }, [dimensions.width]);
 
@@ -111,23 +115,25 @@ export default function App() {
           dimensions={dimensions}
         />
         {dimensions.width > 768 && (
-          <div className="app__container">Welcome to my portfolio website</div>
+          <div className="app__container">
+            <Profile toggleDarkMode={toggleDarkMode} />
+          </div>
         )}
-        <div id="fullpage" ref={fullPageRef}>
+        <div id="fullpage" className="app__page" ref={fullPageRef}>
           {dimensions.width <= 768 && (
-            <div className="section" data-anchor="profile">
+            <div className="section app__section" data-anchor="profile">
               <div className="app__container">
-                Welcome to my portfolio website
+                <Profile toggleDarkMode={toggleDarkMode} />
               </div>
             </div>
           )}
-          <div className="section" data-anchor="about">
+          <div className="section app__section" data-anchor="about">
             <About />
           </div>
-          <div className="section" data-anchor="work">
+          <div className="section app__section" data-anchor="work">
             <Work />
           </div>
-          <div className="section" data-anchor="contact">
+          <div className="section app__section" data-anchor="contact">
             <Contact />
           </div>
         </div>

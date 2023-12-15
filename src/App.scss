@@ -3,15 +3,19 @@
 .app {
   display: flex;
   flex-wrap: wrap;
-
+  @include mobile-only {
+    justify-content: center;
+  }
   @include tablet {
     flex-wrap: nowrap;
   }
   &__container {
-    background-color: green;
+    // background-color: green;
+
+    // border: 2px solid red;
     @include tablet {
       width: 35vw;
-
+      border-right: 4px solid red;
       // position: static;
       // overflow: visible;
       // width: 60%;

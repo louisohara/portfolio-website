@@ -1,0 +1,79 @@
+@use "../../styles/partials/mixins" as *;
+
+.profile {
+  margin: 0 3rem;
+  @include tablet {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  &__title {
+    font-weight: 800;
+    font-size: xx-large;
+    margin: 2rem 0 0 0;
+    width: 50%;
+  }
+  &__logo {
+    margin-left: 1rem;
+    width: 80%;
+  }
+  &__text-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    // align-items: center;
+  }
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem 0;
+    width: 40%;
+  }
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+  }
+  &__icon--alt {
+    filter: invert(100%);
+  }
+  flip-container {
+    margin: 50px;
+    perspective: 1000;
+    display: inline-block;
+  }
+  &__flip-container:hover &__card {
+    transform: rotateY(180deg);
+  }
+  &__card,
+  &__front,
+  &__back {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    margin-top: 1rem;
+  }
+  &__card {
+    transition: 0.5s;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  &__front,
+  &__back {
+    backface-visibility: hidden;
+    position: absolute;
+  }
+  &__front {
+    z-index: 1;
+    transform: rotateY(180deg);
+    background: url("../../assets/images/headshot.jpg") no-repeat;
+    background-size: 15rem;
+  }
+  &__back {
+    z-index: 2; /* back side, placed above front */
+    transform: rotateY(0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+  }
+}
