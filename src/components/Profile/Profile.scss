@@ -2,6 +2,7 @@
 
 .profile {
   margin: 0 3rem;
+  transition: 0.5s;
   @include tablet {
     height: 100%;
     display: flex;
@@ -36,8 +37,7 @@
   &__icon--alt {
     filter: invert(100%);
   }
-  flip-container {
-    margin: 50px;
+  &__flip-container {
     perspective: 1000;
     display: inline-block;
   }
@@ -53,14 +53,15 @@
     margin-top: 1rem;
   }
   &__card {
-    transition: 0.5s;
     transform-style: preserve-3d;
+    transition: 0.5s;
     position: relative;
   }
   &__front,
   &__back {
     backface-visibility: hidden;
     position: absolute;
+    border: 2px solid black;
   }
   &__front {
     z-index: 1;

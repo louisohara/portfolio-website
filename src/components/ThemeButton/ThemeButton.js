@@ -6,7 +6,7 @@ import "./ThemeButton.scss";
 function ThemeButton({ toggleDarkTheme, toggleDarkMode }) {
   return (
     <div className="theme">
-      <IconButton sx={{ ml: 1 }} onClick={toggleDarkTheme} color="inherit">
+      <IconButton sx={{ ml: 1.5 }} onClick={toggleDarkTheme} color="inherit">
         {toggleDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
       </IconButton>
     </div>

@@ -39,19 +39,20 @@ export default function App() {
   });
 
   const initialiseFullPage = () => {
-    const anchors =
-      dimensions.width <= 768
-        ? ["profile", "about", "work", "contact"]
-        : ["about", "work", "contact"]; // Anchors for tablet and above sizes
-
-    // const colours =
+    // UNNECESSARY - ANCHORS CAUSES ISSUES WHEN MOVING
+    // const anchors =
     //   dimensions.width <= 768
-    //     ? ["#f2e9e4", "#c9ada7", "#9a8c98", "#4a4e69"]
-    //     : ["#c9ada7", "#9a8c98", "#4a4e69"];
-    if (dimensions.width <= 768) {
-      anchors.unshift("profile"); // Add 'profile' anchor for mobile size
-      // colours.unshift("#f2e9e4");
-    }
+    //     ? ["profile", "about", "work", "contact"]
+    //     : ["about", "work", "contact"]; // Anchors for tablet and above sizes
+
+    // // const colours =
+    // //   dimensions.width <= 768
+    // //     ? ["#f2e9e4", "#c9ada7", "#9a8c98", "#4a4e69"]
+    // //     : ["#c9ada7", "#9a8c98", "#4a4e69"];
+    // if (dimensions.width <= 768) {
+    //   anchors.unshift("profile"); // Add 'profile' anchor for mobile size
+    //   // colours.unshift("#f2e9e4");
+    // }
 
     new fullpage("#fullpage", {
       scrollingSpeed: 1000,
@@ -64,13 +65,13 @@ export default function App() {
       // sectionsColor: colours,
       navigationColor: "#E0E1DD",
       lazyLoading: false,
-      anchors: anchors,
+      // anchors: anchors, CAUSES ISSUES
       menu: "#myMenu",
     });
   };
   const destroyFullPage = () => {
     if (fullPageRef) {
-      // fullPageRef.innerHTML = "";
+      // fullPageRef.innerHTML = ""; CAUSES ISSUES
       window.fullpage_api.destroy("all");
     }
   };
