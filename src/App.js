@@ -45,13 +45,13 @@ export default function App() {
     //     ? ["profile", "about", "work", "contact"]
     //     : ["about", "work", "contact"]; // Anchors for tablet and above sizes
 
-    // // const colours =
-    // //   dimensions.width <= 768
-    // //     ? ["#f2e9e4", "#c9ada7", "#9a8c98", "#4a4e69"]
-    // //     : ["#c9ada7", "#9a8c98", "#4a4e69"];
+    // const colours =
+    //   dimensions.width <= 768
+    //     ? ["#f2e9e4", "#c9ada7", "#9a8c98", "#4a4e69"]
+    //     : ["#c9ada7", "#9a8c98", "#4a4e69"];
     // if (dimensions.width <= 768) {
-    //   anchors.unshift("profile"); // Add 'profile' anchor for mobile size
-    //   // colours.unshift("#f2e9e4");
+    //   //   anchors.unshift("profile"); // Add 'profile' anchor for mobile size
+    //   colours.unshift("#f2e9e4");
     // }
 
     new fullpage("#fullpage", {
@@ -63,7 +63,7 @@ export default function App() {
       navigation: true,
       navigationPosition: "right",
       // sectionsColor: colours,
-      navigationColor: "#E0E1DD",
+      navigationColor: "#fbfbf2",
       lazyLoading: false,
       // anchors: anchors, CAUSES ISSUES
       menu: "#myMenu",

@@ -1,6 +1,7 @@
 @use "./styles/partials/mixins" as *;
 
 .app {
+  transition: 0.5s;
   display: flex;
   flex-wrap: wrap;
   @include mobile-only {
@@ -20,6 +21,11 @@
       // overflow: visible;
       // width: 60%;
       // float: none;
+    }
+  }
+  &__page {
+    @include tablet {
+      width: 65vw;
     }
   }
 }

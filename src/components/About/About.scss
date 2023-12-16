@@ -1,15 +1,29 @@
-.about {
-  &__marquee {
-    height: 25px;
-    width: 420px;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
+.about {
+  width: 100%;
+  border: red 2px solid;
+
+  &__title {
+    text-align: center;
+    letter-spacing: 1.5px;
+    font-size: $size-sub-header;
+  }
+
+  &__marquee {
+    height: 8rem;
     overflow: hidden;
     position: relative;
   }
-  &__text {
+  &__skill {
     text-transform: capitalize;
     float: left;
-    width: 50%;
+    width: calc(100% / 12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
   @keyframes marquee {
     0% {
@@ -23,14 +37,51 @@
   &__marquee-inner {
     display: block;
     width: 200%;
-    height: 30px;
+    // height: 5rem;
+    // height: 30px;
 
     position: absolute;
-    overflow: hidden;
+    // overflow: hidden;
 
-    animation: marquee 5s linear infinite;
+    animation: marquee 7s linear infinite;
+    animation-play-state: paused;
     &:hover {
-      animation-play-state: paused;
+      animation-play-state: running;
     }
+  }
+  &__icon {
+    background-color: $bg-colour;
+    background-position: 50%;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+  }
+  &__javascript {
+    background-image: url("../../assets/icons/javascript.svg");
+  }
+  &__css {
+    background-image: url("../../assets/icons/css.svg");
+  }
+  &__html {
+    background-image: url("../../assets/icons/html.svg");
+  }
+  &__typescript {
+    background-image: url("../../assets/icons/typescript.svg");
+  }
+  &__react {
+    background-image: url("../../assets/icons/react.svg");
+  }
+  &__express {
+    background-image: url("../../assets/icons/express.svg");
+  }
+  &__info {
+    background-color: $bg-colour;
+    // filter: invert(100);
+  }
+  &__bio,
+  &__title--alt {
+    filter: invert(1);
   }
 }

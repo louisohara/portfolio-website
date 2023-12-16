@@ -2,7 +2,7 @@
 
 .profile {
   margin: 0 3rem;
-  transition: 0.5s;
+
   @include tablet {
     height: 100%;
     display: flex;
@@ -61,7 +61,7 @@
   &__back {
     backface-visibility: hidden;
     position: absolute;
-    border: 2px solid black;
+    border: 2px solid;
   }
   &__front {
     z-index: 1;
