@@ -56,8 +56,8 @@ function Profile({ toggleDarkMode }) {
               <img
                 className={
                   toggleDarkMode
-                    ? "profile__icon profile__icon--alt"
-                    : "profile__icon"
+                    ? "profile__icon profile__icon--user profile__icon--alt"
+                    : "profile__icon profile__icon--user"
                 }
                 src={userIcon}
                 alt="outline of person"

@@ -28,14 +28,29 @@
     display: flex;
     justify-content: space-between;
     margin: 1.5rem 0;
-    width: 40%;
+    width: 50%;
   }
   &__icon {
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+    // border: red 2px solid;
+    border-radius: 50%;
+    padding: 0.5rem;
+    transition: background-color 0.5s ease;
+
+    &:hover {
+      background-color: #efefef;
+    }
   }
   &__icon--alt {
     filter: invert(100%);
+    &:hover {
+      background-color: rgba(128, 128, 128, 0.497);
+    }
+  }
+  &__icon--user {
+    border-radius: 25%;
   }
   &__flip-container {
     perspective: 1000;

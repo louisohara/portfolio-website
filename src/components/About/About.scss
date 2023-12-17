@@ -2,8 +2,12 @@
 @use "../../styles/partials/variables" as *;
 
 .about {
-  width: 100%;
-  border: red 2px solid;
+  width: 90%;
+  margin: 1rem auto;
+  border: 2px solid;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: $shadow-2;
 
   &__title {
     text-align: center;
@@ -12,12 +16,11 @@
   }
 
   &__marquee {
-    height: 8rem;
+    height: 9rem;
     overflow: hidden;
     position: relative;
   }
   &__skill {
-    text-transform: capitalize;
     float: left;
     width: calc(100% / 12);
     display: flex;
@@ -37,12 +40,7 @@
   &__marquee-inner {
     display: block;
     width: 200%;
-    // height: 5rem;
-    // height: 30px;
-
     position: absolute;
-    // overflow: hidden;
-
     animation: marquee 7s linear infinite;
     animation-play-state: paused;
     &:hover {
@@ -51,12 +49,17 @@
   }
   &__icon {
     background-color: $bg-colour;
+
     background-position: 50%;
     background-size: 50%;
     background-repeat: no-repeat;
     width: 5rem;
     height: 5rem;
     border-radius: 50%;
+    transition: background-color 0.5s ease-in;
+    &:hover {
+      background-color: red;
+    }
   }
   &__javascript {
     background-image: url("../../assets/icons/javascript.svg");
@@ -76,12 +79,52 @@
   &__express {
     background-image: url("../../assets/icons/express.svg");
   }
+  &__label {
+    font-weight: 500;
+    font-size: 1.25rem;
+    // color: $bg-colour-alt;
+  }
   &__info {
     background-color: $bg-colour;
+    padding: 0.5rem 0;
     // filter: invert(100);
   }
   &__bio,
   &__title--alt {
-    filter: invert(1);
+    // filter: invert(1);
+    color: white;
+  }
+  &__bio {
+    font-size: $size-text;
+    text-align: center;
+    line-height: 2rem;
+  }
+  &__link {
+    text-decoration: none;
+    color: unset;
+  }
+  &__span {
+    font-weight: 800;
+  }
+
+  &__span--alt {
+    position: relative;
+    text-decoration: none;
+    color: $palette-1;
+    &::after {
+      bottom: -15%;
+      content: "";
+      height: 3px;
+      left: 0;
+      position: absolute;
+      background-color: transparent;
+      transition: background-color 1s, width 1s, font-weight 1s ease-in-out;
+      width: 0%;
+    }
+    &:hover::after {
+      font-weight: 800;
+      width: 100%;
+      background-color: red;
+    }
   }
 }

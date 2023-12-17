@@ -17,7 +17,7 @@ function About() {
   };
   return (
     <section className="about">
-      <h3 className="about__title">Tech Stack:</h3>
+      <h3 className="about__title">About me</h3>
       <div className="about__marquee">
         <div className="about__marquee-inner">
           {renderStack()}
@@ -27,7 +27,24 @@ function About() {
       <div className="about__info">
         <h3 className="about__title about__title--alt">Who am I?</h3>
         <p className="about__bio">
-          For as long as I can remember, I've been interested in: lorem ipsum
+          I'm <span className="about__span">Louis</span>, a full-stack engineer
+          from London. I learnt how to code during BrainStation's{" "}
+          <a
+            className="about__link"
+            href="https://brainstation.io/online/software-engineering-bootcamp"
+          >
+            <span className="about__span about__span--alt">
+              Software Engineering Bootcamp
+            </span>
+          </a>{" "}
+          in September 2023, and ever since I started on this learning journey,
+          I've found it hard to stop!
+          <br />
+          <a href="/#contact" className="about__link">
+            <span className="about__span about__span--alt">
+              Hit me up if you want to climb, cook or code together.
+            </span>
+          </a>
         </p>
       </div>
     </section>
