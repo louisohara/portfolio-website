@@ -63,8 +63,12 @@ export default function App() {
       navigation: true,
       navigationPosition: "right",
       // sectionsColor: colours,
-      navigationColor: "#fbfbf2",
+      navigationColor: "#22223b",
+      // navigationTooltips: ["1", "2"],
       lazyLoading: false,
+      slidesNavigation: true,
+      // responsiveSlides: true,
+      // slidesNavPosition: "center",
       // anchors: anchors, CAUSES ISSUES
       menu: "#myMenu",
     });
@@ -132,7 +136,7 @@ export default function App() {
             <About />
           </div>
           <div className="section app__section" data-anchor="work">
-            <Work />
+            <Work toggleDarkMode={toggleDarkMode} />
           </div>
           <div className="section app__section" data-anchor="contact">
             <Contact />

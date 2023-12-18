@@ -4,7 +4,7 @@ import "./Header.scss";
 function Header({ toggleDarkMode, toggleDarkTheme, dimensions }) {
   return (
     <header className="header">
-      <navbar className="header__navbar">
+      <nav className="header__navbar">
         <ul
           id="myMenu"
           className={
@@ -56,7 +56,7 @@ function Header({ toggleDarkMode, toggleDarkTheme, dimensions }) {
             </a>
           </li>
         </ul>
-      </navbar>
+      </nav>
       <ThemeButton
         toggleDarkMode={toggleDarkMode}
         toggleDarkTheme={toggleDarkTheme}

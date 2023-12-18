@@ -1,0 +1,226 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.work {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+
+  &__project {
+    display: flex;
+    flex-direction: column;
+  }
+  &__cont {
+    border: 2px solid;
+    border-top-left-radius: 26px;
+    border-top-right-radius: 26px;
+    box-shadow: $shadow-2;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 2px solid;
+    padding-bottom: 0;
+  }
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  &__modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e2f23;
+    border: 2px solid;
+    border-radius: 25px;
+    padding: 0.5rem;
+    z-index: 1;
+    box-shadow: $shadow-2;
+    overflow: hidden;
+  }
+  &__modal {
+    border: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &__button--alt {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+    z-index: 10;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: unset;
+  }
+  &__overlay {
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    width: 100%;
+    height: 100%;
+    &:hover {
+      background-color: #2e2e2e50;
+    }
+  }
+  &__icon {
+    filter: invert(1);
+    border-radius: 50%;
+    padding: 0.5rem;
+    cursor: pointer;
+    width: 6rem;
+    height: auto;
+    transition: transform 0.5s ease;
+    background-color: transparent;
+    &:hover {
+      transform: scale(1.25);
+      background-color: #efefef83;
+    }
+  }
+  &__icon--alt {
+    width: 3rem;
+    transition: background-color 0.25 ease;
+  }
+
+  &__logo {
+    height: 3rem;
+    width: auto;
+    filter: invert(1);
+  }
+  &__logo--dark {
+    filter: invert(1);
+  }
+  &__icon--dark {
+    filter: invert(0);
+  }
+  &__info {
+    padding: 1rem;
+    // box-shadow: $shadow-2;
+    z-index: 1;
+
+    position: relative;
+    // background-color: rgba(21, 132, 99, 0.5);
+  }
+  &__div {
+    width: 100%;
+    height: 1rem;
+  }
+  &__particles {
+    height: 100%;
+    width: 100%;
+    border: 2px solid;
+    border-bottom-left-radius: 26px;
+    border-bottom-right-radius: 26px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: 0;
+    overflow: hidden;
+  }
+  &__list {
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+  }
+  &__list-item {
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 0.5rem;
+    border-radius: 15px;
+    border: 2px dashed #158463;
+    background-color: rgba(21, 132, 99, 0.5);
+    color: white;
+  }
+  &__list,
+  &__bio {
+    position: relative;
+    z-index: 2;
+    padding-left: 0.5rem;
+  }
+  &__bio {
+    font-size: $size-text;
+    font-weight: 400;
+    color: white;
+  }
+}
+
+.loader {
+  display: block;
+  color: #ffffff;
+  font-size: 45px;
+  text-indent: -9999em;
+  overflow: hidden;
+  z-index: 2;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  transform: translateZ(0);
+  animation: mltShdSpin 1.7s infinite ease, round 1.7s infinite ease;
+}
+
+@keyframes mltShdSpin {
+  0% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  5%,
+  95% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  10%,
+  59% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em,
+      -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em,
+      -0.297em -0.775em 0 -0.477em;
+  }
+  20% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em,
+      -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em,
+      -0.749em -0.34em 0 -0.477em;
+  }
+  38% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em,
+      -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em,
+      -0.82em -0.09em 0 -0.477em;
+  }
+  100% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+}
+
+@keyframes round {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -13,12 +13,14 @@
     text-align: center;
     letter-spacing: 1.5px;
     font-size: $size-sub-header;
+    margin: 0.5rem;
   }
 
   &__marquee {
     height: 9rem;
     overflow: hidden;
     position: relative;
+    margin-bottom: 0.5rem;
   }
   &__skill {
     float: left;
@@ -38,6 +40,7 @@
   }
 
   &__marquee-inner {
+    margin-top: 0.75rem;
     display: block;
     width: 200%;
     position: absolute;
@@ -56,9 +59,10 @@
     width: 5rem;
     height: 5rem;
     border-radius: 50%;
-    transition: background-color 0.5s ease-in;
+    transition: background-color, transform 0.5s ease-in;
     &:hover {
       background-color: red;
+      transform: scale(1.25);
     }
   }
   &__javascript {
@@ -86,7 +90,8 @@
   }
   &__info {
     background-color: $bg-colour;
-    padding: 0.5rem 0;
+    padding-bottom: 0.5rem;
+    border-top: 2px solid;
     // filter: invert(100);
   }
   &__bio,
