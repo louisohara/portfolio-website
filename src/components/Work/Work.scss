@@ -2,13 +2,14 @@
 @use "../../styles/partials/variables" as *;
 
 .work {
+  // height: 100% impacts drop-shadow
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 90%;
   margin: auto;
-
+  box-shadow: $shadow-2;
   border-radius: 25px;
   position: relative;
   overflow: hidden;
@@ -21,7 +22,7 @@
     border: 2px solid;
     border-top-left-radius: 26px;
     border-top-right-radius: 26px;
-    box-shadow: $shadow-2;
+    // box-shadow: $shadow-2;
     overflow: hidden;
     position: relative;
     border-bottom: 2px solid;

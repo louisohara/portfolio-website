@@ -28,11 +28,11 @@
       width: 65vw;
     }
   }
-  // &__section {
-  //   height: 100%;
-  //   width: 100%;
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  // }
+  &__section {
+    height: 100%;
+  }
+}
+// OVERRIDES HEIGHT OF SECTIONS
+.fp-overflow {
+  overflow-y: visible !important;
 }

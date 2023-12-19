@@ -15,8 +15,9 @@
     width: 50%;
   }
   &__logo {
-    margin-left: 1rem;
     width: 80%;
+    overflow: hidden;
+    height: 50px;
   }
   &__text-container {
     display: flex;
@@ -91,5 +92,44 @@
     align-items: center;
     justify-content: center;
     background-color: red;
+  }
+  // EDIT FROM INFINITE
+  &__carousel {
+    -webkit-animation: scroll 10s ease-in-out no-repeat;
+    animation: scroll 5s ease-in-out no-repeat;
+  }
+  @keyframes scroll {
+    0%,
+    5% {
+      transform: translateY(50px);
+    }
+    20%,
+    5% {
+      transform: translateY(0);
+    }
+    25%,
+    45% {
+      transform: translateY(-50px);
+    }
+    50%,
+    70% {
+      transform: translateY(-100px);
+    }
+    75%,
+    95% {
+      transform: translateY(-150px);
+    }
+    100% {
+      transform: translateY(-200px);
+    }
+  }
+  &__inner {
+    font-size: 35px;
+    line-height: 50px;
+    font-weight: 800;
+    margin: 0;
+    &--last {
+      font-style: italic;
+    }
   }
 }

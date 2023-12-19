@@ -12,7 +12,16 @@ function Profile({ toggleDarkMode }) {
           <div className="profile__card">
             <div className="profile__front"></div>
             <div className="profile__back">
-              <h1 className="profile__logo">DEVELOPER. THINKER. MAKER.</h1>
+              <div className="profile__logo">
+                <div className="profile__carousel">
+                  <h1 className="profile__inner">CODER</h1>
+                  <h1 className="profile__inner">CLIMBER</h1>
+                  <h1 className="profile__inner">CREATOR</h1>
+                  <h1 className="profile__inner profile__inner--last">
+                    clever
+                  </h1>
+                </div>
+              </div>
             </div>
           </div>
         </div>
