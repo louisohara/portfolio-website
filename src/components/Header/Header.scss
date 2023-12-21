@@ -51,8 +51,10 @@
   }
   &__link--alt {
     &:hover {
-      background-color: $palette-1;
-      color: $palette-5;
+      // background-color: $palette-1;
+      background-color: $bg-colour-alt;
+      // color: $palette-5;
+      // font-weight: 600;
       border-bottom: 2px solid $palette-1;
     }
   }

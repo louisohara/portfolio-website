@@ -15,12 +15,12 @@
     @content;
   }
 }
-@mixin underline {
+@mixin underline($bottom) {
   position: relative;
   text-decoration: none;
 
   &::after {
-    bottom: 0;
+    bottom: $bottom;
     content: "";
     height: 3px;
     left: 0;

@@ -139,7 +139,7 @@ export default function App() {
             <Work toggleDarkMode={toggleDarkMode} />
           </div>
           <div className="section app__section" data-anchor="contact">
-            <Contact />
+            <Contact toggleDarkMode={toggleDarkMode} />
           </div>
         </div>
       </div>

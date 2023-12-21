@@ -1,10 +1,98 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 .contact {
+  background-color: $palette-1;
   height: 100%;
   width: 90%;
   margin: auto;
   box-shadow: $shadow-2;
   border-radius: 25px;
   border: 2px solid;
+
+  padding: 1rem;
+  &--dark {
+    background-color: #252529;
+  }
+  &__title {
+    letter-spacing: 1.5px;
+    font-size: $size-sub-header;
+    margin: 0.5rem;
+  }
+  &__title,
+  &__subtitle {
+    text-align: center;
+  }
+  &__email {
+    @include underline(-15%);
+  }
+  &__link {
+    text-decoration: none;
+    font-weight: 600;
+    color: $palette-5;
+    &--dark {
+      color: $palette-1;
+    }
+  }
+
+  &__form {
+    width: 90%;
+    margin: auto;
+  }
+  &__flex {
+    display: flex;
+
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  &__wrapper {
+    width: 100%;
+    position: relative;
+  }
+  &__input {
+    background-color: red;
+  }
+  &__error-container {
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
+    gap: 0.5rem;
+    right: 0;
+    position: absolute;
+    top: 0;
+    // color: red;
+  }
+  &__error {
+    margin: 0;
+  }
+  &__message {
+    position: relative;
+    ::placeholder {
+      font-family: inherit;
+    }
+  }
+  &__button-container {
+    display: flex;
+    justify-content: center;
+  }
+  &__button {
+    background-color: $button-colour;
+    color: white;
+    border: 2px solid;
+    border-radius: 30px;
+    padding: 0.5rem 3rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: color 0.5s, background-color 0.5s ease;
+    &:hover {
+      cursor: pointer;
+      background-color: $bg-colour-alt;
+      color: white;
+    }
+    &:active {
+      border: 2px solid $hover-colour;
+    }
+    &--dark {
+      background-color: $palette-5;
+    }
+  }
 }

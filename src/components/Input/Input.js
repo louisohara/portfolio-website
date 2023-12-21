@@ -9,6 +9,7 @@ function Input({
   accept,
   alt,
   placeholder,
+  toggleDarkMode,
 }) {
   return (
     <div className="field">
@@ -19,7 +20,11 @@ function Input({
         type={type}
         id={name}
         name={name}
-        className={`field__input field__input--${alt}`}
+        className={
+          toggleDarkMode
+            ? `field__input field__input--${alt} field__input--dark`
+            : `field__input field__input--${alt}`
+        }
         value={value}
         onChange={onChange}
         accept={accept}

@@ -6,7 +6,7 @@ import { useRef } from "react";
 import errorImg from "../../assets/icons/error.svg";
 import Input from "../../components/Input/Input";
 
-function Contact() {
+function Contact({ toggleDarkMode }) {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
   const form = useRef();
@@ -59,15 +59,25 @@ function Contact() {
   };
 
   return (
-    <section className="contact">
+    <section className={toggleDarkMode ? "contact contact--dark" : "contact"}>
       <div className="contact__container">
         <div className="contact__text">
           <h1 className="contact__title">Let's Connect!</h1>
           <p className="contact__subtitle">
-            Like my code? Think we should work together? Reach out to me
-            directly via{" "}
+            <span className="contact__span">
+              Like my code? Think we should work together?{" "}
+            </span>
+            <br />
+            Reach out to me directly via{" "}
             <span className="contact__email">
-              <a href="mailto:louisohara20@gmail.com" className="contact__link">
+              <a
+                href="mailto:louisohara20@gmail.com"
+                className={
+                  toggleDarkMode
+                    ? "contact__link contact__link--dark"
+                    : "contact__link"
+                }
+              >
                 email
               </a>
             </span>{" "}
@@ -77,84 +87,98 @@ function Contact() {
         <div className="contact__form-wrapper">
           {!success && (
             <form className="contact__form" ref={form} onSubmit={handleSubmit}>
-              <Input
-                type="text"
-                name="name"
-                label="Name"
-                onChange={handleChange}
-                placeholder="John doe"
-              />
-              {error && !fields.name ? (
-                <div className="contact__error-container">
-                  <img
-                    src={errorImg}
-                    className="contact__icon"
-                    alt="error icon"
+              <div className="contact__flex">
+                <div className="contact__wrapper">
+                  <Input
+                    type="text"
+                    name="name"
+                    label="Name"
+                    onChange={handleChange}
+                    placeholder="Ada Lovelace"
+                    alt={error && !fields.name ? "error" : ""}
+                    toggleDarkMode={toggleDarkMode}
                   />
-                  <p className="contact__error">This field is required</p>
+                  {error && !fields.name ? (
+                    <div className="contact__error-container">
+                      <img
+                        src={errorImg}
+                        className="contact__icon"
+                        alt="error icon"
+                      />
+                      <p className="contact__error">This field is required</p>
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
-              ) : (
-                ""
-              )}
-              <Input
-                type="text"
-                name="email"
-                label="Email"
-                onChange={handleChange}
-                placeholder="Your email"
-              />{" "}
-              {error && !fields.email ? (
-                <div className="contact__error-container">
-                  <img
-                    src={errorImg}
-                    className="contact__icon"
-                    alt="error icon"
-                  />
-                  <p className="contact__error">This field is required</p>
+                <div className="contact__wrapper">
+                  <Input
+                    type="text"
+                    name="email"
+                    label="Email"
+                    onChange={handleChange}
+                    placeholder="lovelace@gmail.com"
+                    alt={error && !fields.email ? "error" : ""}
+                    toggleDarkMode={toggleDarkMode}
+                  />{" "}
+                  {(error && !fields.email) || (error && !isEmailValid()) ? (
+                    <div className="contact__error-container">
+                      <img
+                        src={errorImg}
+                        className="contact__icon"
+                        alt="error icon"
+                      />
+                      <p className="contact__error">
+                        {fields.email
+                          ? "Please enter a valid email"
+                          : "This field is required"}
+                      </p>
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
-              ) : (
-                ""
-              )}
-              {error && !isEmailValid() ? (
-                <div className="contact__error-container">
-                  <img
-                    src={errorImg}
-                    className="contact__icon"
-                    alt="error icon"
-                  />
-                  <p className="contact__error">Please enter a valid email</p>
-                </div>
-              ) : (
-                <></>
-              )}
-              <div className="field">
+              </div>
+              <div className="contact__message field">
                 <label htmlFor="message" className="field__label">
-                  Message:
+                  Message
                 </label>
                 <textarea
-                  className="field__input"
+                  className={`field__input  field__input--textarea ${
+                    error && !fields.message ? "field__input--error" : ""
+                  } ${toggleDarkMode ? `field__input--dark` : ``}`}
                   type="textarea"
                   name="message"
                   id="message"
                   onChange={handleChange}
-                  placeholder="Your message"
+                  placeholder="Let's talk about..."
                 ></textarea>
+
+                {error && !fields.message ? (
+                  <div className="contact__error-container">
+                    <img
+                      src={errorImg}
+                      className="contact__icon"
+                      alt="error icon"
+                    />
+                    <p className="contact__error">This field is required</p>
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
-              {error && !fields.message ? (
-                <div className="contact__error-container">
-                  <img
-                    src={errorImg}
-                    className="contact__icon"
-                    alt="error icon"
-                  />
-                  <p className="contact__error">This field is required</p>
-                </div>
-              ) : (
-                ""
-              )}
-              <button className="contact__button" type="submit">
-                Submit
-              </button>
+              <div className="contact__button-container">
+                <button
+                  className={
+                    toggleDarkMode
+                      ? `contact__button--dark contact__button`
+                      : `contact__button`
+                  }
+                  type="submit"
+                >
+                  Send
+                </button>
+              </div>
             </form>
           )}
           {success && (

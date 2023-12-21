@@ -113,23 +113,7 @@
   }
 
   &__span--alt {
-    position: relative;
-    text-decoration: none;
     color: $palette-1;
-    &::after {
-      bottom: -15%;
-      content: "";
-      height: 3px;
-      left: 0;
-      position: absolute;
-      background-color: transparent;
-      transition: background-color 1s, width 1s, font-weight 1s ease-in-out;
-      width: 0%;
-    }
-    &:hover::after {
-      font-weight: 800;
-      width: 100%;
-      background-color: red;
-    }
+    @include underline(-15%);
   }
 }

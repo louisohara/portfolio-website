@@ -9,6 +9,8 @@
 
   &__label {
     margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 1rem;
     &--alt {
       text-align: center;
     }
@@ -16,14 +18,27 @@
 
   &__input {
     margin-bottom: 1rem;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 0.5rem;
     padding: 0.5rem;
     font-size: inherit;
-    &--alt {
-      color: rgba(0, 0, 0, 0);
-      cursor: pointer;
-      position: relative;
+
+    &--error {
+      border: 2px solid red;
+    }
+    &:active,
+    &:focus {
+      outline: none;
+      border: 2px solid $hover-colour;
+    }
+    &--dark {
+      background-color: rgb(59 59 59);
+      color: #ccc;
+      &:active,
+      &:focus {
+        outline: none;
+        border: 2px solid $bg-colour-dark;
+      }
     }
   }
 }

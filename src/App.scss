@@ -1,4 +1,5 @@
 @use "./styles/partials/mixins" as *;
+@use "./styles/partials/variables" as *;
 
 .app {
   transition: 0.5s;
@@ -16,7 +17,7 @@
     // border: 2px solid red;
     @include tablet {
       width: 35vw;
-      border-right: 4px solid red;
+      border-right: 10px solid $bg-colour-alt;
       // position: static;
       // overflow: visible;
       // width: 60%;
