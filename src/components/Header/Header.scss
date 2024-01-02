@@ -20,7 +20,7 @@
     width: 100%;
   }
   &__ul {
-    background-color: $palette-alt-1;
+    background-color: white;
     box-shadow: $shadow;
     border-radius: 25px;
     box-shadow: 0;
@@ -30,6 +30,7 @@
     width: 60%;
     margin: 1rem auto;
     padding-left: 0;
+    font-size: 1.05rem;
   }
   &__ul--alt {
     background-color: $palette-5;

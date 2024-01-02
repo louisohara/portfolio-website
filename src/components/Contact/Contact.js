@@ -31,6 +31,13 @@ function Contact({ toggleDarkMode }) {
     }
     return true;
   };
+  const isNameValid = () => {
+    const re = /^[a-zA-Z ]*$/;
+    if (!re.test(fields.name)) {
+      return false;
+    }
+    return true;
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -60,32 +67,32 @@ function Contact({ toggleDarkMode }) {
 
   return (
     <section className={toggleDarkMode ? "contact contact--dark" : "contact"}>
-      <div className="contact__container">
-        <div className="contact__text">
-          <h1 className="contact__title">Let's Connect!</h1>
-          <p className="contact__subtitle">
-            <span className="contact__span">
-              Like my code? Think we should work together?{" "}
-            </span>
-            <br />
-            Reach out to me directly via{" "}
-            <span className="contact__email">
-              <a
-                href="mailto:louisohara20@gmail.com"
-                className={
-                  toggleDarkMode
-                    ? "contact__link contact__link--dark"
-                    : "contact__link"
-                }
-              >
-                email
-              </a>
-            </span>{" "}
-            or using the form below:
-          </p>
-        </div>
-        <div className="contact__form-wrapper">
-          {!success && (
+      {!success && (
+        <div className="contact__container">
+          <div className="contact__text">
+            <h1 className="contact__title">Let's Connect!</h1>
+            <p className="contact__subtitle">
+              <span className="contact__span">
+                Like my code? Think we should work together?{" "}
+              </span>
+              <br />
+              Reach out to me directly via{" "}
+              <span className="contact__email">
+                <a
+                  href="mailto:louisohara20@gmail.com"
+                  className={
+                    toggleDarkMode
+                      ? "contact__link contact__link--dark"
+                      : "contact__link"
+                  }
+                >
+                  email
+                </a>
+              </span>{" "}
+              or using the form below:
+            </p>
+          </div>
+          <div className="contact__form-wrapper">
             <form className="contact__form" ref={form} onSubmit={handleSubmit}>
               <div className="contact__flex">
                 <div className="contact__wrapper">
@@ -98,14 +105,18 @@ function Contact({ toggleDarkMode }) {
                     alt={error && !fields.name ? "error" : ""}
                     toggleDarkMode={toggleDarkMode}
                   />
-                  {error && !fields.name ? (
+                  {(error && !fields.email) || (error && !isNameValid()) ? (
                     <div className="contact__error-container">
                       <img
                         src={errorImg}
                         className="contact__icon"
                         alt="error icon"
                       />
-                      <p className="contact__error">This field is required</p>
+                      <p className="contact__error">
+                        {fields.email
+                          ? "Only alphabetic charracters permitted"
+                          : "This field is required"}
+                      </p>
                     </div>
                   ) : (
                     ""
@@ -144,7 +155,7 @@ function Contact({ toggleDarkMode }) {
                   Message
                 </label>
                 <textarea
-                  className={`field__input  field__input--textarea ${
+                  className={`contact__textarea field__input  field__input--textarea ${
                     error && !fields.message ? "field__input--error" : ""
                   } ${toggleDarkMode ? `field__input--dark` : ``}`}
                   type="textarea"
@@ -180,19 +191,19 @@ function Contact({ toggleDarkMode }) {
                 </button>
               </div>
             </form>
-          )}
-          {success && (
-            <div className="contact__success">
-              <h3 className="contact__success-title">
-                Thanks for being in touch!
-              </h3>
-              <p className="contact__success-message">
-                Your email was sent successfully
-              </p>
-            </div>
-          )}
+          </div>
         </div>
-      </div>
+      )}
+      {success && (
+        <div className="contact__text contact__text--success">
+          <h1 className="contact__title contact__title--success">
+            Thanks for being in touch!
+          </h1>
+          <p className="contact__subtitle contact__subtitle--success">
+            Your email was sent successfully
+          </p>
+        </div>
+      )}
     </section>
   );
 }

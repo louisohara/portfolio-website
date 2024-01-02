@@ -39,21 +39,6 @@ export default function App() {
   });
 
   const initialiseFullPage = () => {
-    // UNNECESSARY - ANCHORS CAUSES ISSUES WHEN MOVING
-    // const anchors =
-    //   dimensions.width <= 768
-    //     ? ["profile", "about", "work", "contact"]
-    //     : ["about", "work", "contact"]; // Anchors for tablet and above sizes
-
-    // const colours =
-    //   dimensions.width <= 768
-    //     ? ["#f2e9e4", "#c9ada7", "#9a8c98", "#4a4e69"]
-    //     : ["#c9ada7", "#9a8c98", "#4a4e69"];
-    // if (dimensions.width <= 768) {
-    //   //   anchors.unshift("profile"); // Add 'profile' anchor for mobile size
-    //   colours.unshift("#f2e9e4");
-    // }
-
     new fullpage("#fullpage", {
       scrollingSpeed: 1000,
 
@@ -62,14 +47,12 @@ export default function App() {
       dragAndMove: true,
       navigation: true,
       navigationPosition: "right",
-      // sectionsColor: colours,
+
       navigationColor: "#22223b",
-      // navigationTooltips: ["1", "2"],
+
       lazyLoading: false,
       slidesNavigation: true,
-      // responsiveSlides: true,
-      // slidesNavPosition: "center",
-      // anchors: anchors, CAUSES ISSUES
+
       menu: "#myMenu",
     });
   };
