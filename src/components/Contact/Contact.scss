@@ -1,6 +1,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 .contact {
+  zoom: 75%;
   background-color: $bg-colour;
   height: 100%;
   width: 90%;

@@ -2,6 +2,7 @@
 @use "../../styles/partials/variables" as *;
 
 .profile {
+  zoom: 75%;
   width: 80%;
   margin: 0 auto;
   @include mobile-only {
