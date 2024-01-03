@@ -185,7 +185,7 @@ function Work({ toggleDarkMode }) {
               <li className="work__list-item">React</li>
               <li className="work__list-item">MySql</li>
               <li className="work__list-item">Express</li>
-              <li className="work__list-item">Node.js</li>
+
               <li className="work__list-item">Firebase</li>
             </ul>
             <p className="work__bio">

@@ -29,16 +29,6 @@ const ImageCarousel = () => {
         alt={`Slide ${currentImageIndex}`}
         className="work__image"
       />
-      {/* <ul className="work__dot-list">
-        {images.map((_, index) => (
-          <li
-            key={index}
-            className={`work__dot ${
-              index === currentImageIndex ? "work__dot--active" : ""
-            }`}
-          ></li>
-        ))}
-      </ul> */}
     </div>
   );
 };
