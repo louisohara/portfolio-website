@@ -5,6 +5,9 @@
   transition: 0.5s;
   display: flex;
   flex-wrap: wrap;
+  &--alt {
+    background-color: $app-colour;
+  }
   @include mobile-only {
     justify-content: center;
   }
@@ -12,12 +15,18 @@
     flex-wrap: nowrap;
   }
   &__container {
-    // background-color: green;
-
-    // border: 2px solid red;
+    @include tablet {
+      &--alt {
+        background-color: white;
+        // background-color: $palette-3-alt;
+        // color: white;
+      }
+      background-color: $bg-colour-dark;
+    }
     @include tablet {
       width: 35vw;
-      border-right: 10px solid $bg-colour-alt;
+      // border-right: 5px solid;
+
       // position: static;
       // overflow: visible;
       // width: 60%;
@@ -31,9 +40,19 @@
   }
   &__section {
     height: 100%;
+    // &--alt {
+    //   background-color: $app-colour;
+    // }
   }
 }
 // OVERRIDES HEIGHT OF SECTIONS
 .fp-overflow {
   overflow-y: visible !important;
+}
+.app__section--work.fp-section {
+  display: flex;
+}
+
+.fp-right ul {
+  filter: invert(1);
 }

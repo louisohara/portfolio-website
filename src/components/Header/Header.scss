@@ -30,33 +30,31 @@
     width: 60%;
     margin: 1rem auto;
     padding-left: 0;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
   }
   &__ul--alt {
-    background-color: $palette-5;
+    background-color: $bg-colour-dark;
   }
   &__link {
     list-style-type: none;
     padding: 0.5rem 1rem;
     border-radius: 25px;
     font-weight: 500;
-    border-bottom: 2px solid transparent;
-
+    border: 2px solid transparent;
     transition: background-color 0.15s;
-    // @include underline;
+
     &:hover {
+      @include pulse(154, 140, 152);
       background-color: $palette-5;
       color: $palette-1;
-      border-bottom: 2px solid $palette-5;
     }
   }
+
   &__link--alt {
     &:hover {
-      // background-color: $palette-1;
-      background-color: $bg-colour-alt;
-      // color: $palette-5;
-      // font-weight: 600;
-      border-bottom: 2px solid $palette-1;
+      filter: invert(1);
+      @include pulse(255, 255, 255);
+      // background-color: rgba(128, 128, 128, 0.5);
     }
   }
   &__link-tag {
@@ -66,7 +64,5 @@
   }
 }
 .header__navbar .active {
-  // background-color: red;
   border: 2px solid;
-  // box-shadow: inset 0 -5px 5px -5px $palette-1;
 }

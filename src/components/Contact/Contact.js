@@ -1,6 +1,5 @@
 import "./Contact.scss";
 import { useState } from "react";
-
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
 import errorImg from "../../assets/icons/error.svg";
@@ -76,7 +75,7 @@ function Contact({ toggleDarkMode }) {
                 Like my code? Think we should work together?{" "}
               </span>
               <br />
-              Reach out to me directly via{" "}
+              Feel free to reach out to me directly via{" "}
               <span className="contact__email">
                 <a
                   href="mailto:louisohara20@gmail.com"
@@ -89,7 +88,7 @@ function Contact({ toggleDarkMode }) {
                   email
                 </a>
               </span>{" "}
-              or using the form below:
+              or by using the form below.
             </p>
           </div>
           <div className="contact__form-wrapper">

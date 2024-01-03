@@ -29,36 +29,25 @@ export default function App() {
   const darkTheme = createTheme({
     palette: {
       mode: toggleDarkMode ? "dark" : "light",
-      primary: {
-        main: "#E0E1DD",
-      },
-      secondary: {
-        main: "#0D1B2A",
-      },
     },
   });
 
   const initialiseFullPage = () => {
     new fullpage("#fullpage", {
       scrollingSpeed: 1000,
-
-      licenseKey: "49LBJ-QFTRJ-2K68I-J3RQ6-JLXMN",
+      licenseKey: process.env.REACT_APP_LICENSE_KEY,
       credits: { enabled: false, label: "", position: "right" },
       dragAndMove: true,
       navigation: true,
       navigationPosition: "right",
-
       navigationColor: "#22223b",
-
       lazyLoading: false,
       slidesNavigation: true,
-
       menu: "#myMenu",
     });
   };
   const destroyFullPage = () => {
     if (fullPageRef) {
-      // fullPageRef.innerHTML = ""; CAUSES ISSUES
       window.fullpage_api.destroy("all");
     }
   };
@@ -73,7 +62,6 @@ export default function App() {
 
   useEffect(() => {
     initialiseFullPage(); // Initial FullPage.js setup
-
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -96,29 +84,44 @@ export default function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <div className="app">
+      <div className={toggleDarkMode ? "app" : "app app--alt"}>
         <Header
           toggleDarkTheme={toggleDarkTheme}
           toggleDarkMode={toggleDarkMode}
           dimensions={dimensions}
         />
         {dimensions.width > 768 && (
-          <div className="app__container">
+          <div
+            className={
+              toggleDarkMode
+                ? "app__container"
+                : "app__container app__container--alt"
+            }
+          >
             <Profile toggleDarkMode={toggleDarkMode} />
           </div>
         )}
         <div id="fullpage" className="app__page" ref={fullPageRef}>
           {dimensions.width <= 768 && (
             <div className="section app__section" data-anchor="profile">
-              <div className="app__container">
+              <div
+                className={
+                  toggleDarkMode
+                    ? "app__container"
+                    : "app__container app__container--alt"
+                }
+              >
                 <Profile toggleDarkMode={toggleDarkMode} />
               </div>
             </div>
           )}
           <div className="section app__section" data-anchor="about">
-            <About />
+            <About toggleDarkMode={toggleDarkMode} />
           </div>
-          <div className="section app__section" data-anchor="work">
+          <div
+            className="section app__section app__section--work"
+            data-anchor="work"
+          >
             <Work toggleDarkMode={toggleDarkMode} />
           </div>
           <div className="section app__section" data-anchor="contact">

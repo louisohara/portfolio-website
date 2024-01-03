@@ -5,11 +5,11 @@ import {
   EyeIcon,
   CodeBracketIcon,
 } from "@heroicons/react/24/solid";
-import screenshot from "../../assets/images/screenshot.png";
 import blink from "../../assets/icons/blink2.png";
 import { useCallback } from "react";
 import Particles from "react-particles";
 import { loadSlim } from "tsparticles-slim";
+import ImageCarousel from "../Carousel/Carousel";
 
 function Work({ toggleDarkMode }) {
   const [show, setShow] = useState(false);
@@ -32,16 +32,16 @@ function Work({ toggleDarkMode }) {
   return (
     <section className="work" onScroll={handleClose}>
       <article className="work__project">
-        <div className="work__cont">
-          <img
-            className="work__image"
-            alt="screenshot of application"
-            src={screenshot}
-          />
+        <div
+          className={
+            toggleDarkMode ? "work__cont work__cont--dark" : "work__cont"
+          }
+        >
+          <ImageCarousel />
+
           <div className="work__overlay">
             <a
               href="https://github.com/louisohara/louis-ohara-blink"
-              target="_blank"
               className="work__link"
             >
               <CodeBracketIcon
@@ -81,6 +81,8 @@ function Work({ toggleDarkMode }) {
             </div>
             <span className="loader"></span>
             <iframe
+              alt="demo video"
+              title="Video of app demo"
               src="https://www.loom.com/embed/be035be7c50944c9ae500112055dee57?sid=ff89b244-e8eb-4867-b8b4-eb7f3277cba5?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true"
               webkitallowfullscreen="true"
               mozallowfullscreen="true"
@@ -183,12 +185,13 @@ function Work({ toggleDarkMode }) {
               <li className="work__list-item">React</li>
               <li className="work__list-item">MySql</li>
               <li className="work__list-item">Express</li>
+              <li className="work__list-item">Node.js</li>
               <li className="work__list-item">Firebase</li>
             </ul>
             <p className="work__bio">
-              A full-stack web application designed to help users organise
-              last-minute plans with friends. Responsive at mobile and desktop
-              breakpoints.
+              A full-stack web application designed to simplify organising
+              last-minute plans with friends. Features include user
+              authentication/login, user file-upload and responsive design.
             </p>
           </div>
         )}

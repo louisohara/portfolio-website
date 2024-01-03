@@ -1,17 +1,19 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 .contact {
-  background-color: $palette-1;
+  background-color: $bg-colour;
   height: 100%;
   width: 90%;
   margin: auto;
   box-shadow: $shadow-2;
   border-radius: 25px;
   border: 2px solid;
-
   padding: 1rem;
+  &__container {
+    color: white;
+  }
   &--dark {
-    background-color: #252529;
+    background-color: $bg-colour-dark;
   }
   &__title {
     letter-spacing: 1.5px;
@@ -22,16 +24,18 @@
   &__subtitle {
     text-align: center;
   }
+  &__subtitle {
+    @include desktop {
+      font-size: 1.15rem;
+    }
+  }
   &__email {
     @include underline(-15%);
   }
   &__link {
     text-decoration: none;
     font-weight: 600;
-    color: $palette-5;
-    &--dark {
-      color: $palette-1;
-    }
+    color: $palette-1;
   }
 
   &__form {
@@ -48,9 +52,7 @@
     width: 100%;
     position: relative;
   }
-  &__input {
-    background-color: red;
-  }
+
   &__error-container {
     display: flex;
     align-items: center;
@@ -59,7 +61,6 @@
     right: 0;
     position: absolute;
     top: 0;
-    // color: red;
   }
   &__error {
     margin: 0;
@@ -79,7 +80,8 @@
     justify-content: center;
   }
   &__button {
-    background-color: $button-colour;
+    background-color: $palette-5;
+
     color: white;
     border: 2px solid;
     border-radius: 30px;
@@ -94,10 +96,21 @@
     }
     &:active {
       border: 2px solid $hover-colour;
+      color: black;
     }
     &--dark {
-      background-color: $palette-5;
+      filter: invert(1);
+      color: black;
+      background-color: $bg-colour;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $palette-5;
+      }
     }
+  }
+  &__text {
+    color: white;
   }
 }
 

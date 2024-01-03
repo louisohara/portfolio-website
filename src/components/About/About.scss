@@ -8,7 +8,11 @@
   border-radius: 25px;
   overflow: hidden;
   box-shadow: $shadow-2;
+  background-color: white;
 
+  &--alt {
+    background-color: $bg-colour-dark-alt;
+  }
   &__title {
     text-align: center;
     letter-spacing: 1.5px;
@@ -61,10 +65,17 @@
     border-radius: 50%;
     transition: background-color, transform 0.5s ease-in;
     &:hover {
-      background-color: red;
+      background-color: $bg-colour-alt;
       transform: scale(1.25);
     }
+    &--alt {
+      filter: invert(1);
+      &:hover {
+        background-color: $bg-colour;
+      }
+    }
   }
+
   &__javascript {
     background-image: url("../../assets/icons/javascript.svg");
   }
@@ -92,17 +103,18 @@
     background-color: $bg-colour;
     padding: 0 0.5rem 0.5rem 0.5rem;
     border-top: 2px solid;
-    // filter: invert(100);
   }
   &__bio,
   &__title--alt {
-    // filter: invert(1);
     color: white;
   }
   &__bio {
     font-size: $size-text;
     text-align: center;
     line-height: 2rem;
+    @include desktop {
+      font-size: 1.15rem;
+    }
   }
   &__link {
     text-decoration: none;
@@ -115,5 +127,9 @@
   &__span--alt {
     color: $palette-1;
     @include underline(-15%);
+  }
+  &__info--alt,
+  &__icon--alt {
+    background-color: $bg-colour-dark;
   }
 }
