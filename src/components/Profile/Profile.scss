@@ -1,0 +1,170 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.profile {
+  width: 80%;
+  margin: 0 auto;
+  @include mobile-only {
+    width: 90%;
+    margin: 1rem auto;
+    border: 2px solid;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: $shadow-2;
+    background-color: white;
+    padding: 0.5rem 1rem;
+    &--alt {
+      background-color: $bg-colour-dark;
+    }
+  }
+  &__container {
+    @include mobile-only {
+      text-align: center;
+    }
+  }
+  @include tablet {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    font-weight: 800;
+    font-size: xx-large;
+    margin: 2rem 0 0 0;
+    // width: 50%;
+  }
+  &__logo {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__carousel--outer {
+    margin-top: 2rem;
+    overflow: hidden;
+    height: 50px;
+    @include tablet {
+      width: 80%;
+    }
+  }
+  &__text-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1.25rem;
+    // align-items: center;
+  }
+  &__icons {
+    @include mobile-only {
+      margin: 1rem auto;
+    }
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    width: 50%;
+  }
+  &__icon {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+    // border: 2px dashed;
+    border-radius: 50%;
+    padding: 0.5rem;
+    transition: background-color 0.5s ease;
+
+    &:hover {
+      background-color: #efefef;
+      @include pulse(0, 0, 0);
+    }
+  }
+  &__icon--alt {
+    filter: invert(100%);
+    &:hover {
+      background-color: rgba(128, 128, 128, 0.5);
+      @include pulse(0, 0, 0);
+    }
+  }
+  &__icon--user {
+    border-radius: 25%;
+  }
+  &__flip-container {
+    perspective: 1000;
+    display: inline-block;
+  }
+  &__flip-container:hover &__card {
+    transform: rotateY(180deg);
+  }
+  &__card,
+  &__front,
+  &__back {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    margin-top: 1rem;
+  }
+  &__card {
+    transform-style: preserve-3d;
+    transition: 0.5s;
+    position: relative;
+  }
+  &__front,
+  &__back {
+    backface-visibility: hidden;
+    position: absolute;
+    border: 2px solid;
+  }
+  &__front {
+    z-index: 1;
+    transform: rotateY(180deg);
+    background: url("../../assets/images/headshot.jpg") no-repeat;
+    background-size: 15rem;
+  }
+  &__back {
+    z-index: 2;
+    transform: rotateY(0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $bg-colour;
+    &--alt {
+      filter: invert(1);
+      border: 2px solid black;
+    }
+  }
+
+  &__carousel {
+    -webkit-animation: scroll 10s ease-in-out infinite;
+    animation: scroll 10s ease-in-out infinite;
+  }
+  @keyframes scroll {
+    0%,
+    5% {
+      transform: translateY(50px);
+    }
+    20%,
+    5% {
+      transform: translateY(0);
+    }
+    25%,
+    45% {
+      transform: translateY(-50px);
+    }
+    50%,
+    70% {
+      transform: translateY(-100px);
+    }
+    75%,
+    95% {
+      transform: translateY(-150px);
+    }
+    100% {
+      transform: translateY(-200px);
+    }
+  }
+  &__inner {
+    font-size: 35px;
+    line-height: 50px;
+    font-weight: 800;
+    margin: 0;
+  }
+}

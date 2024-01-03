@@ -1,0 +1,135 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.about {
+  width: 90%;
+  margin: 1rem auto;
+  border: 2px solid;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: $shadow-2;
+  background-color: white;
+
+  &--alt {
+    background-color: $bg-colour-dark-alt;
+  }
+  &__title {
+    text-align: center;
+    letter-spacing: 1.5px;
+    font-size: $size-sub-header;
+    margin: 0.5rem;
+  }
+
+  &__marquee {
+    height: 9rem;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+  &__skill {
+    float: left;
+    width: calc(100% / 12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  @keyframes marquee {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: -100%;
+    }
+  }
+
+  &__marquee-inner {
+    margin-top: 0.75rem;
+    display: block;
+    width: 200%;
+    position: absolute;
+    animation: marquee 7s linear infinite;
+    animation-play-state: paused;
+    &:hover {
+      animation-play-state: running;
+    }
+  }
+  &__icon {
+    background-color: $bg-colour;
+
+    background-position: 50%;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    transition: background-color, transform 0.5s ease-in;
+    &:hover {
+      background-color: $bg-colour-alt;
+      transform: scale(1.25);
+    }
+    &--alt {
+      filter: invert(1);
+      &:hover {
+        background-color: $bg-colour;
+      }
+    }
+  }
+
+  &__javascript {
+    background-image: url("../../assets/icons/javascript.svg");
+  }
+  &__css {
+    background-image: url("../../assets/icons/css.svg");
+  }
+  &__html {
+    background-image: url("../../assets/icons/html.svg");
+  }
+  &__typescript {
+    background-image: url("../../assets/icons/typescript.svg");
+  }
+  &__react {
+    background-image: url("../../assets/icons/react.svg");
+  }
+  &__express {
+    background-image: url("../../assets/icons/express.svg");
+  }
+  &__label {
+    font-weight: 500;
+    font-size: 1.25rem;
+    // color: $bg-colour-alt;
+  }
+  &__info {
+    background-color: $bg-colour;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    border-top: 2px solid;
+  }
+  &__bio,
+  &__title--alt {
+    color: white;
+  }
+  &__bio {
+    font-size: $size-text;
+    text-align: center;
+    line-height: 2rem;
+    @include desktop {
+      font-size: 1.15rem;
+    }
+  }
+  &__link {
+    text-decoration: none;
+    color: unset;
+  }
+  &__span {
+    font-weight: 800;
+  }
+
+  &__span--alt {
+    color: $palette-1;
+    @include underline(-15%);
+  }
+  &__info--alt,
+  &__icon--alt {
+    background-color: $bg-colour-dark;
+  }
+}

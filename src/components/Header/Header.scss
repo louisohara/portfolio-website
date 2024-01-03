@@ -1,0 +1,68 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.header {
+  transition: 0.5s;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  // border-bottom: 2px solid $palette-5;
+  backdrop-filter: blur(10px);
+
+  @include tablet {
+    width: 65%;
+    right: 0;
+  }
+
+  &__navbar {
+    width: 100%;
+  }
+  &__ul {
+    background-color: white;
+    box-shadow: $shadow;
+    border-radius: 25px;
+    box-shadow: 0;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin: 1rem auto;
+    padding-left: 0;
+    font-size: 1.15rem;
+  }
+  &__ul--alt {
+    background-color: $bg-colour-dark;
+  }
+  &__link {
+    list-style-type: none;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: 500;
+    border: 2px solid transparent;
+    transition: background-color 0.15s;
+
+    &:hover {
+      @include pulse(154, 140, 152);
+      background-color: $palette-5;
+      color: $palette-1;
+    }
+  }
+
+  &__link--alt {
+    &:hover {
+      filter: invert(1);
+      @include pulse(255, 255, 255);
+      // background-color: rgba(128, 128, 128, 0.5);
+    }
+  }
+  &__link-tag {
+    cursor: pointer;
+    text-decoration: none;
+    color: unset;
+  }
+}
+.header__navbar .active {
+  border: 2px solid;
+}
