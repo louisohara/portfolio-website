@@ -3,7 +3,7 @@
 
 .work {
   @include mobile-only {
-    transform: scale(0.5);
+    transform: scale(0.7);
   }
   @include tablet {
     zoom: 75%;

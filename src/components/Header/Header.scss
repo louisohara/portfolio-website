@@ -2,9 +2,9 @@
 @use "../../styles/partials/variables" as *;
 
 .header {
-  @include mobile-only {
-    transform: scale(0.5);
-  }
+  // @include mobile-only {
+  //   transform: scale(0.7);
+  // }
   @include tablet {
     zoom: 75%;
   }
@@ -46,6 +46,9 @@
   }
   &__link {
     list-style-type: none;
+    @include mobile-only {
+      padding: 0.5rem;
+    }
     padding: 0.5rem 1rem;
     border-radius: 25px;
     font-weight: 500;
