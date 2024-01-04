@@ -2,14 +2,17 @@
 @use "../../styles/partials/variables" as *;
 
 .header {
-  zoom: 75%;
+  zoom: 60%;
+  @include tablet {
+    zoom: 75%;
+  }
   transition: 0.5s;
   z-index: 1;
   position: absolute;
   top: 0;
   width: 100%;
   display: flex;
-  // border-bottom: 2px solid $palette-5;
+
   backdrop-filter: blur(10px);
 
   @include tablet {
@@ -28,7 +31,10 @@
     position: relative;
     display: flex;
     justify-content: space-between;
-    width: 60%;
+    width: 80%;
+    @include tablet {
+      width: 60%;
+    }
     margin: 1rem auto;
     padding-left: 0;
     font-size: 1.15rem;
@@ -45,17 +51,20 @@
     transition: background-color 0.15s;
 
     &:hover {
-      @include pulse(154, 140, 152);
-      background-color: $palette-5;
-      color: $palette-1;
+      @include tablet {
+        @include pulse(154, 140, 152);
+        background-color: $palette-5;
+        color: $palette-1;
+      }
     }
   }
 
   &__link--alt {
     &:hover {
-      filter: invert(1);
-      @include pulse(255, 255, 255);
-      // background-color: rgba(128, 128, 128, 0.5);
+      @include tablet {
+        filter: invert(1);
+        @include pulse(255, 255, 255);
+      }
     }
   }
   &__link-tag {
@@ -64,6 +73,17 @@
     color: unset;
   }
 }
-.header__navbar .active {
+.header__link.active {
   border: 2px solid;
+  @include mobile-only {
+    @include pulse(154, 140, 152);
+    background-color: $palette-5;
+    color: $palette-1;
+  }
+}
+.header__link--alt.active {
+  @include mobile-only {
+    @include pulse(255, 255, 255);
+    filter: invert(1);
+  }
 }

@@ -51,6 +51,7 @@ export default function App() {
       window.fullpage_api.destroy("all");
     }
   };
+
   const handleResize = () => {
     setDimensions({
       height: window.innerHeight,
