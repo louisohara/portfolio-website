@@ -89,6 +89,7 @@ function Work({ toggleDarkMode }) {
               webkitallowfullscreen="true"
               mozallowfullscreen="true"
               allowFullScreen={true}
+              allowfullscreen
               className="work__modal"
               loading="lazy"
             ></iframe>
