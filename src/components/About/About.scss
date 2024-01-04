@@ -4,6 +4,7 @@
 .about {
   @include mobile-only {
     transform: scale(0.7);
+    margin-top: 1.5rem;
   }
 
   @include tablet {

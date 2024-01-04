@@ -2,7 +2,11 @@
 @use "../../styles/partials/variables" as *;
 .contact {
   // zoom: 50%;
-  transform: scale(0.7);
+  @include mobile-only {
+    transform: scale(0.7);
+    margin-top: 1.5rem;
+  }
+
   @include tablet {
     zoom: 75%;
   }
@@ -50,7 +54,7 @@
   }
   &__flex {
     display: flex;
-
+    max-width: 100%;
     justify-content: space-between;
     @include mobile-only {
       gap: 0.5rem;
@@ -76,13 +80,13 @@
   }
   &__message {
     position: relative;
-    font-family: "Inter";
+    font-family: "Inter", "Roboto", "Helvetica", "Arial", "sans-serif";
     ::placeholder {
-      font-family: "Inter";
+      font-family: "Inter", "Roboto", "Helvetica", "Arial", "sans-serif";
     }
   }
   &__textarea {
-    font-family: "Inter";
+    font-family: "Inter", "Roboto", "Helvetica", "Arial", "sans-serif";
   }
   &__button-container {
     display: flex;
