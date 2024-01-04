@@ -30,10 +30,11 @@
     }
   }
   &__cont {
+    border: 2px solid;
     border-top-left-radius: 26px;
     border-top-right-radius: 26px;
     background-color: rgba(21, 132, 99, 0.2);
-
+    border-bottom: none;
     width: 100%;
     overflow: hidden;
     position: relative;
