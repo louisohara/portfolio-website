@@ -31,7 +31,9 @@ function Work({ toggleDarkMode }) {
 
   return (
     <section className="work" onScroll={handleClose}>
-      <article className="work__project">
+      <article
+        className={show ? "work__project work__project--alt" : "work__project"}
+      >
         <div
           className={
             toggleDarkMode ? "work__cont work__cont--dark" : "work__cont"
@@ -83,7 +85,7 @@ function Work({ toggleDarkMode }) {
             <iframe
               alt="demo video"
               title="Video of app demo"
-              src="https://www.loom.com/embed/be035be7c50944c9ae500112055dee57?sid=ff89b244-e8eb-4867-b8b4-eb7f3277cba5?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true"
+              src="https://www.loom.com/embed/be035be7c50944c9ae500112055dee57?sid=cc5e05ba-70dc-4a94-ab32-cc7234a00aef?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true&?hideFullScreenButton=true"
               webkitallowfullscreen="true"
               mozallowfullscreen="true"
               allowFullScreen={true}
@@ -92,109 +94,112 @@ function Work({ toggleDarkMode }) {
             ></iframe>
           </div>
         )}
-        {!show && (
-          <div className="work__info">
-            <div className="work__div">
-              <Particles
-                id="tsparticles"
-                className="work__particles"
-                init={particlesInit}
-                loaded={particlesLoaded}
-                options={{
-                  fullScreen: false,
-                  background: {
-                    color: {
-                      value: "#1E2F23",
-                    },
-                  },
-                  fpsLimit: 120,
-                  interactivity: {
-                    events: {
-                      onClick: {
-                        enable: false,
-                        mode: "push",
-                      },
-                      onHover: {
-                        enable: false,
-                        mode: "repulse",
-                      },
-                      resize: true,
-                    },
-                    modes: {
-                      push: {
-                        quantity: 4,
-                      },
-                      repulse: {
-                        distance: 50,
-                        duration: 0.4,
+
+        <div className="work__info">
+          {!show && (
+            <>
+              <div className="work__div">
+                <Particles
+                  id="tsparticles"
+                  className="work__particles"
+                  init={particlesInit}
+                  loaded={particlesLoaded}
+                  options={{
+                    fullScreen: false,
+                    background: {
+                      color: {
+                        value: "#1E2F23",
                       },
                     },
-                  },
-                  particles: {
-                    color: {
-                      value: "#ffffff",
-                    },
-                    links: {
-                      color: "#ffffff",
-                      distance: 150,
-                      enable: true,
-                      opacity: 0.5,
-                      width: 1,
-                    },
-                    move: {
-                      direction: "none",
-                      enable: true,
-                      outModes: {
-                        default: "bounce",
+                    fpsLimit: 120,
+                    interactivity: {
+                      events: {
+                        onClick: {
+                          enable: false,
+                          mode: "push",
+                        },
+                        onHover: {
+                          enable: false,
+                          mode: "repulse",
+                        },
+                        resize: true,
                       },
-                      random: true,
-                      speed: 2,
-                      straight: false,
+                      modes: {
+                        push: {
+                          quantity: 4,
+                        },
+                        repulse: {
+                          distance: 50,
+                          duration: 0.4,
+                        },
+                      },
                     },
-                    number: {
-                      density: {
+                    particles: {
+                      color: {
+                        value: "#ffffff",
+                      },
+                      links: {
+                        color: "#ffffff",
+                        distance: 150,
                         enable: true,
-                        area: 800,
+                        opacity: 0.5,
+                        width: 1,
                       },
-                      value: 80,
+                      move: {
+                        direction: "none",
+                        enable: true,
+                        outModes: {
+                          default: "bounce",
+                        },
+                        random: true,
+                        speed: 2,
+                        straight: false,
+                      },
+                      number: {
+                        density: {
+                          enable: true,
+                          area: 800,
+                        },
+                        value: 80,
+                      },
+                      opacity: {
+                        value: 0.5,
+                      },
+                      shape: {
+                        type: "circle",
+                      },
+                      size: {
+                        value: { min: 1, max: 3 },
+                      },
                     },
-                    opacity: {
-                      value: 0.5,
-                    },
-                    shape: {
-                      type: "circle",
-                    },
-                    size: {
-                      value: { min: 1, max: 3 },
-                    },
-                  },
-                  detectRetina: true,
-                }}
+                    detectRetina: true,
+                  }}
+                />
+              </div>
+
+              <img
+                src={blink}
+                alt="logo"
+                className={
+                  toggleDarkMode ? "work__logo work__logo--dark" : "work__logo "
+                }
               />
-            </div>
+              <ul className="work__list">
+                <li className="work__list-item">JavaScript</li>
+                <li className="work__list-item">React</li>
+                <li className="work__list-item">MySql</li>
+                <li className="work__list-item">Express</li>
 
-            <img
-              src={blink}
-              alt="logo"
-              className={
-                toggleDarkMode ? "work__logo work__logo--dark" : "work__logo "
-              }
-            />
-            <ul className="work__list">
-              <li className="work__list-item">JavaScript</li>
-              <li className="work__list-item">React</li>
-              <li className="work__list-item">MySql</li>
-              <li className="work__list-item">Express</li>
-
-              <li className="work__list-item">Firebase</li>
-            </ul>
-            <p className="work__bio">
-              A full-stack web application designed to simplify organising
-              last-minute plans with friends. Features include user
-              authentication/login, user file-upload and responsive design.
-            </p>
-          </div>
-        )}
+                <li className="work__list-item">Firebase</li>
+              </ul>
+              <p className="work__bio">
+                A full-stack web application designed to simplify organising
+                last-minute plans with friends. Features include user
+                authentication/login, user file-upload and responsive design.
+              </p>
+            </>
+          )}
+        </div>
       </article>
     </section>
   );
