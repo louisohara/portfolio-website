@@ -2,7 +2,7 @@
 @use "../../styles/partials/variables" as *;
 
 .about {
-  zoom: 50%;
+  zoom: 40%;
   @include tablet {
     zoom: 75%;
   }
