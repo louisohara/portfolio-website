@@ -1,7 +1,8 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 .contact {
-  zoom: 50%;
+  // zoom: 50%;
+  transform: scale(0.5);
   @include tablet {
     zoom: 75%;
   }

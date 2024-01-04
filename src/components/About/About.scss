@@ -2,7 +2,10 @@
 @use "../../styles/partials/variables" as *;
 
 .about {
-  zoom: 40%;
+  @include mobile-only {
+    transform: scale(0.5);
+  }
+  // zoom: 40%;
   @include tablet {
     zoom: 75%;
   }
@@ -25,7 +28,7 @@
   }
 
   &__marquee {
-    height: 6rem;
+    height: 7rem;
     @include tablet {
       height: 9rem;
     }

@@ -2,7 +2,9 @@
 @use "../../styles/partials/variables" as *;
 
 .header {
-  zoom: 40%;
+  @include mobile-only {
+    transform: scale(0.5);
+  }
   @include tablet {
     zoom: 75%;
   }
