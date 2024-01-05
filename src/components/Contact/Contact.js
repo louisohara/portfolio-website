@@ -103,6 +103,7 @@ function Contact({ toggleDarkMode }) {
                     placeholder="Ada Lovelace"
                     alt={error && !fields.name ? "error" : ""}
                     toggleDarkMode={toggleDarkMode}
+                    autoComplete="name"
                   />
                   {(error && !fields.email) || (error && !isNameValid()) ? (
                     <div className="contact__error-container">
@@ -112,9 +113,7 @@ function Contact({ toggleDarkMode }) {
                         alt="error icon"
                       />
                       <p className="contact__error">
-                        {fields.email
-                          ? "Only alphabetic charracters permitted"
-                          : "This field is required"}
+                        {fields.name ? "Enter valid name" : "Required field"}
                       </p>
                     </div>
                   ) : (
@@ -130,6 +129,7 @@ function Contact({ toggleDarkMode }) {
                     placeholder="lovelace@gmail.com"
                     alt={error && !fields.email ? "error" : ""}
                     toggleDarkMode={toggleDarkMode}
+                    autoComplete="email"
                   />{" "}
                   {(error && !fields.email) || (error && !isEmailValid()) ? (
                     <div className="contact__error-container">
@@ -139,9 +139,7 @@ function Contact({ toggleDarkMode }) {
                         alt="error icon"
                       />
                       <p className="contact__error">
-                        {fields.email
-                          ? "Please enter a valid email"
-                          : "This field is required"}
+                        {fields.email ? "Enter valid email" : "Required field"}
                       </p>
                     </div>
                   ) : (
@@ -171,7 +169,7 @@ function Contact({ toggleDarkMode }) {
                       className="contact__icon"
                       alt="error icon"
                     />
-                    <p className="contact__error">This field is required</p>
+                    <p className="contact__error">Required field</p>
                   </div>
                 ) : (
                   ""

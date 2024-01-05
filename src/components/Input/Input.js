@@ -10,6 +10,7 @@ function Input({
   alt,
   placeholder,
   toggleDarkMode,
+  autoComplete,
 }) {
   return (
     <div className="field">
@@ -29,6 +30,7 @@ function Input({
         onChange={onChange}
         accept={accept}
         placeholder={placeholder}
+        autoComplete={autoComplete}
       />
     </div>
   );

@@ -1,9 +1,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 .contact {
-  // zoom: 50%;
   @include mobile-only {
-    transform: scale(0.7);
     margin-top: 1.5rem;
   }
 

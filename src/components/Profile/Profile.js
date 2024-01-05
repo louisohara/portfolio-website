@@ -34,9 +34,9 @@ function Profile({ toggleDarkMode }) {
           <div className="profile__carousel--outer">
             <div className="profile__carousel">
               <h1 className="profile__inner">LOUIS O'HARA</h1>
-              <h1 className="profile__inner">THINKER</h1>
-              <h1 className="profile__inner">DEVELOPER</h1>
+              <h1 className="profile__inner">CODER</h1>
               <h1 className="profile__inner">CREATOR</h1>
+              <h1 className="profile__inner">INNOVATOR</h1>
             </div>
           </div>
 
