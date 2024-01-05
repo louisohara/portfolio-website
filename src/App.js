@@ -21,6 +21,13 @@ export default function App() {
     height: window.innerHeight,
     width: window.innerWidth,
   });
+  const [show, setShow] = useState(false);
+  const handleShow = () => {
+    setShow(true);
+  };
+  const handleClose = () => {
+    setShow(false);
+  };
 
   const toggleDarkTheme = () => {
     setToggleDarkMode(!toggleDarkMode);
@@ -44,6 +51,11 @@ export default function App() {
       lazyLoading: false,
       slidesNavigation: true,
       menu: "#myMenu",
+      onLeave: function (origin, destination, direction) {
+        if (origin.anchor === "work") {
+          handleClose();
+        }
+      },
     });
   };
   const destroyFullPage = () => {
@@ -120,10 +132,19 @@ export default function App() {
             <About toggleDarkMode={toggleDarkMode} />
           </div>
           <div
-            className="section app__section app__section--work"
+            className={
+              show
+                ? "section app__section app__section--work app__section--alt"
+                : "section app__section app__section--work"
+            }
             data-anchor="work"
           >
-            <Work toggleDarkMode={toggleDarkMode} />
+            <Work
+              toggleDarkMode={toggleDarkMode}
+              show={show}
+              handleShow={handleShow}
+              handleClose={handleClose}
+            />
           </div>
           <div className="section app__section" data-anchor="contact">
             <Contact toggleDarkMode={toggleDarkMode} />

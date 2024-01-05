@@ -3,8 +3,11 @@
 
 .work {
   @include mobile-only {
-    transform: scale(0.7);
+    // transform: scale(0.7);
     margin-top: 1.5rem;
+    // &--alt {
+    //   // transform: scale(1);
+    // }
   }
   @include tablet {
     zoom: 75%;
@@ -103,7 +106,7 @@
     top: 0;
     right: 0;
     margin: 1rem;
-    z-index: 10;
+    z-index: 31;
   }
 
   &__link {
@@ -270,4 +273,10 @@
   100% {
     transform: rotate(360deg);
   }
+}
+div.css-1lhbuwb,
+div.css-utvy5,
+div.css-4s4m7w {
+  display: none !important;
+  visibility: hidden;
 }

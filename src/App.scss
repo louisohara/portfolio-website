@@ -33,6 +33,14 @@
   }
   &__section {
     height: 100%;
+    @include mobile-only {
+      display: flex;
+      align-items: center;
+      transform: scale(0.7);
+      &--alt {
+        transform: unset;
+      }
+    }
   }
 }
 
@@ -40,11 +48,21 @@
   overflow-y: visible !important;
   overflow-x: visible !important;
 }
+
 .app__section--work.fp-section {
   display: flex;
   overflow: visible;
 }
-
+.app__section--work .fp-overflow {
+  @include mobile-only {
+    width: 100%;
+  }
+}
+.app__section--alt .fp-overflow {
+  @include mobile-only {
+    overflow-y: auto !important;
+  }
+}
 .fp-right ul {
   filter: invert(1);
 }

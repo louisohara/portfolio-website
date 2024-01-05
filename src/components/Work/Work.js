@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./Work.scss";
 import {
   XCircleIcon,
@@ -11,14 +10,7 @@ import Particles from "react-particles";
 import { loadSlim } from "tsparticles-slim";
 import ImageCarousel from "../Carousel/Carousel";
 
-function Work({ toggleDarkMode }) {
-  const [show, setShow] = useState(false);
-  const handleShow = () => {
-    setShow(true);
-  };
-  const handleClose = () => {
-    setShow(false);
-  };
+function Work({ toggleDarkMode, show, handleShow, handleClose }) {
   const particlesInit = useCallback(async (engine) => {
     console.log(engine);
 
@@ -30,7 +22,10 @@ function Work({ toggleDarkMode }) {
   }, []);
 
   return (
-    <section className="work" onScroll={handleClose}>
+    <section
+      className={show ? "work work--alt" : "work"}
+      onScroll={handleClose}
+    >
       <article
         className={show ? "work__project work__project--alt" : "work__project"}
       >
@@ -89,7 +84,6 @@ function Work({ toggleDarkMode }) {
               webkitallowfullscreen="true"
               mozallowfullscreen="true"
               allowFullScreen={true}
-              allowfullscreen
               className="work__modal"
               loading="lazy"
             ></iframe>
@@ -190,13 +184,14 @@ function Work({ toggleDarkMode }) {
                 <li className="work__list-item">React</li>
                 <li className="work__list-item">MySql</li>
                 <li className="work__list-item">Express</li>
-
+                {/* <li className="work__list-item">Node.js</li> */}
                 <li className="work__list-item">Firebase</li>
               </ul>
               <p className="work__bio">
                 A full-stack web application designed to simplify organising
                 last-minute plans with friends. Features include user
-                authentication/login, user file-upload and responsive design.
+                authentication, user image upload and 'active now'
+                functionality.
               </p>
             </>
           )}

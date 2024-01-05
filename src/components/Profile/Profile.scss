@@ -2,9 +2,6 @@
 @use "../../styles/partials/variables" as *;
 
 .profile {
-  @include mobile-only {
-    transform: scale(0.7);
-  }
   @include tablet {
     zoom: 75%;
   }
@@ -159,8 +156,8 @@
   }
 
   &__carousel {
-    -webkit-animation: scroll 10s ease-in-out infinite;
-    animation: scroll 10s ease-in-out infinite;
+    -webkit-animation: scroll 8.5s ease-in-out infinite;
+    animation: scroll 8.5s ease-in-out infinite;
   }
 
   @keyframes scroll {
