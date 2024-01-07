@@ -33,6 +33,13 @@
   }
   &__section {
     height: 100%;
+    @include tablet {
+      &--alt {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
     @include mobile-only {
       display: flex;
       align-items: center;
@@ -54,8 +61,10 @@
   overflow: visible;
 }
 .app__section--work .fp-overflow {
-  @include mobile-only {
-    width: 100%;
+  width: 100%;
+  @include tablet {
+    display: flex;
+    height: 100%;
   }
 }
 .app__section--alt .fp-overflow {
