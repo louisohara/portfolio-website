@@ -33,7 +33,7 @@
   }
   &__subtitle {
     font-size: $size-text-mobile;
-    @include desktop {
+    @include tablet {
       font-size: 1.15rem;
     }
   }
