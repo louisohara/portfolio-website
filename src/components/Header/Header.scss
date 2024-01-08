@@ -78,6 +78,7 @@
     color: unset;
   }
 }
+
 .header__link.active {
   border: 2px solid;
   @include mobile-only {

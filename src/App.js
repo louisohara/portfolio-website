@@ -15,6 +15,8 @@ import Profile from "./components/Profile/Profile";
 
 export default function App() {
   const [toggleDarkMode, setToggleDarkMode] = useState(false);
+  const [links, setLinks] = useState(null);
+
   const fullPageRef = useRef(null);
 
   const [dimensions, setDimensions] = useState({
@@ -31,6 +33,7 @@ export default function App() {
 
   const toggleDarkTheme = () => {
     setToggleDarkMode(!toggleDarkMode);
+    setActive(links);
   };
 
   const darkTheme = createTheme({
@@ -38,6 +41,21 @@ export default function App() {
       mode: toggleDarkMode ? "dark" : "light",
     },
   });
+
+  const setActive = async (array) => {
+    if (window.fullpage_api) {
+      const active = await window.fullpage_api.getActiveSection();
+      if (active) {
+        for (let i = 0; i < array.length; i++) {
+          if (array[i].getAttribute("data-menuanchor") === active.anchor) {
+            array[i].classList.add("active");
+          } else {
+            array[i].classList.remove("active");
+          }
+        }
+      }
+    }
+  };
 
   const initialiseFullPage = () => {
     new fullpage("#fullpage", {
@@ -51,11 +69,6 @@ export default function App() {
       lazyLoading: false,
       slidesNavigation: true,
       menu: "#myMenu",
-      onLeave: function (origin, destination, direction) {
-        if (origin.anchor === "work") {
-          handleClose();
-        }
-      },
     });
   };
   const destroyFullPage = () => {
@@ -89,8 +102,14 @@ export default function App() {
     if (dimensions.width > 768 && active.anchor === "profile") {
       window.fullpage_api.silentMoveTo("about");
     }
+
     if (dimensions.width < 768 && active.anchor === "about") {
       window.fullpage_api.silentMoveTo("profile");
+    }
+    const ulElement = document.querySelector("#myMenu"); // Assuming the UL has an ID of 'myMenu'
+    if (ulElement) {
+      setLinks(ulElement.children);
+      setActive(ulElement.children);
     }
   }, [dimensions.width]);
 
@@ -102,6 +121,7 @@ export default function App() {
           toggleDarkTheme={toggleDarkTheme}
           toggleDarkMode={toggleDarkMode}
           dimensions={dimensions}
+          handleClose={handleClose}
         />
         {dimensions.width > 768 && (
           <div
@@ -135,7 +155,7 @@ export default function App() {
             className={
               show
                 ? "section app__section app__section--work app__section--alt"
-                : "section app__section app__section--work"
+                : "section app__section app__section--work app__section--alt"
             }
             data-anchor="work"
           >

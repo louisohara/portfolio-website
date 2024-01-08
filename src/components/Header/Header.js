@@ -1,7 +1,7 @@
 import ThemeButton from "../ThemeButton/ThemeButton";
 import "./Header.scss";
 
-function Header({ toggleDarkMode, toggleDarkTheme, dimensions }) {
+function Header({ toggleDarkMode, toggleDarkTheme, dimensions, handleClose }) {
   return (
     <header className="header">
       <nav className="header__navbar">
@@ -14,6 +14,7 @@ function Header({ toggleDarkMode, toggleDarkTheme, dimensions }) {
           {dimensions.width <= 768 && (
             <li
               data-menuanchor="profile"
+              onClick={handleClose}
               className={
                 toggleDarkMode
                   ? "header__link header__link--alt "
@@ -27,6 +28,7 @@ function Header({ toggleDarkMode, toggleDarkTheme, dimensions }) {
           )}
           <li
             data-menuanchor="about"
+            onClick={handleClose}
             className={
               toggleDarkMode ? "header__link header__link--alt" : "header__link"
             }
@@ -37,6 +39,7 @@ function Header({ toggleDarkMode, toggleDarkTheme, dimensions }) {
           </li>
           <li
             data-menuanchor="work"
+            onClick={handleClose}
             className={
               toggleDarkMode ? "header__link header__link--alt" : "header__link"
             }
@@ -47,6 +50,7 @@ function Header({ toggleDarkMode, toggleDarkTheme, dimensions }) {
           </li>
           <li
             data-menuanchor="contact"
+            onClick={handleClose}
             className={
               toggleDarkMode ? "header__link header__link--alt" : "header__link"
             }

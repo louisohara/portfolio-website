@@ -179,21 +179,61 @@ function Work({ toggleDarkMode, show, handleShow, handleClose }) {
                   toggleDarkMode ? "work__logo work__logo--dark" : "work__logo "
                 }
               />
-              <ul className="work__list">
-                <li className="work__list-item">JavaScript</li>
-                <li className="work__list-item">React</li>
-                <li className="work__list-item">MySql</li>
-                <li className="work__list-item">Express</li>
-                {/* <li className="work__list-item">Node.js</li> */}
-                <li className="work__list-item">Firebase</li>
-              </ul>
-              <p className="work__bio">
-                A full-stack web application designed to simplify organising
-                last-minute plans with friends. Features include user
-                authentication, user image upload and 'active now'
-                functionality.
-              </p>
             </>
+          )}
+          <ul className={show ? "work__list work__list--alt" : "work__list"}>
+            <li
+              className={
+                show
+                  ? "work__list-item work__list-item--alt"
+                  : "work__list-item"
+              }
+            >
+              JavaScript
+            </li>
+            <li
+              className={
+                show
+                  ? "work__list-item work__list-item--alt"
+                  : "work__list-item"
+              }
+            >
+              React
+            </li>
+            <li
+              className={
+                show
+                  ? "work__list-item work__list-item--alt"
+                  : "work__list-item"
+              }
+            >
+              MySql
+            </li>
+            <li
+              className={
+                show
+                  ? "work__list-item work__list-item--alt"
+                  : "work__list-item"
+              }
+            >
+              Express
+            </li>
+            <li
+              className={
+                show
+                  ? "work__list-item work__list-item--alt"
+                  : "work__list-item"
+              }
+            >
+              Firebase
+            </li>
+          </ul>
+          {!show && (
+            <p className="work__bio">
+              A full-stack web application designed to simplify organising
+              last-minute plans with friends. Features include user
+              authentication, user image upload and 'active now' functionality.
+            </p>
           )}
         </div>
       </article>
