@@ -59,16 +59,19 @@
 }
 .app__section--work .fp-overflow {
   width: 100%;
+  // @include mobile-only {
+  //   // overflow-y: auto !important;
+  // }
   @include tablet {
     display: flex;
     height: 100%;
   }
 }
-.app__section--alt .fp-overflow {
-  @include mobile-only {
-    overflow-y: auto !important;
-  }
-}
+// .app__section--alt.active .fp-overflow {
+//   @include mobile-only {
+//     overflow-y: visible !important;
+//   }
+// }
 .fp-right ul {
   filter: invert(1);
 }
