@@ -2,10 +2,6 @@
 @use "../../styles/partials/variables" as *;
 
 .about {
-  @include mobile-only {
-    // transform: scale(0.7);
-  }
-
   @include tablet {
     zoom: 75%;
   }
@@ -46,7 +42,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    // margin: 0 1rem;
   }
   @keyframes marquee {
     0% {

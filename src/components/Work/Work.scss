@@ -3,11 +3,7 @@
 
 .work {
   @include mobile-only {
-    // transform: scale(0.7);
     margin-top: 1.5rem;
-    // &--alt {
-    //   // transform: scale(1);
-    // }
   }
   @include tablet {
     zoom: 75%;
@@ -189,6 +185,9 @@
     &::-webkit-scrollbar {
       display: none;
     }
+    &--alt {
+      visibility: hidden;
+    }
   }
   &__list-item {
     font-weight: 700;
@@ -198,6 +197,11 @@
     border: 2px dashed #158463;
     background-color: rgba(21, 132, 99, 0.5);
     color: white;
+    &--alt {
+      @include mobile-only {
+        height: 0;
+      }
+    }
   }
   &__list,
   &__bio {
